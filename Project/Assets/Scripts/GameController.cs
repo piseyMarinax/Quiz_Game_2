@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
 	public Text questionText;
 	public Text TimeDisplayText;
 	public Text scoreDisplayText;
+	public Text HightestDisplayText;
 	public Transform answerButtonParent;
 	public GameObject questionDisplay;
 	public GameObject roundEndDisplay;
@@ -100,6 +101,10 @@ public class GameController : MonoBehaviour
 	{
 		// remove answer button 
 		RemoveAnswerButton();
+
+		//show highter score
+		dataController.SubmitNewPlayerScore(playerScore);
+		HightestDisplayText.text = "Highter Score :"+dataController.GetHightestScore().ToString();
 
 		isRoundActive = false;	
 		questionDisplay.SetActive(false);
